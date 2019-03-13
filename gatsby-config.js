@@ -8,12 +8,19 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'src',
+				path: './src',
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/static/images`,
+				name: 'images',
+			},
+		},
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -31,4 +38,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};

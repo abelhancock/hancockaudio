@@ -1,0 +1,56 @@
+@import '/node_modules/normalize.css/normalize.css';
+@import './variables.scss';
+@import './mixins.scss';
+@import './extendables.scss';
+
+@font-face {
+    font-family: "Gotham Pro";
+    src: ("./static/GothaProBol.otf");
+}
+@font-face {
+    font-family: "Didot";
+    src: ("./static/Didot.ttf");
+}
+
+html {
+    color: $colorPrimary;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h5,
+h6 {
+    font-family: $fontSerif;
+    color: $colorPrimary;
+    margin: 0;
+}
+
+h4,
+p,
+a {
+    font-family: $fontSans;
+    color: $colorPrimary;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        color: $colorAccent;
+    }
+}
+
+h1 {
+    @extend %fontSizeH1;
+    font-weight: 400;
+}
+h4 {
+    @extend %fontSizeH4;
+    font-weight: 400;
+}
+p {
+    @extend %fontSizeBase;
+    font-weight: 400;
+}

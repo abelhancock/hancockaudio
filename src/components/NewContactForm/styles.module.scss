@@ -1,0 +1,77 @@
+@import 'src/styles/global.scss';
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:last-of-type {
+        justify-content: flex-end;
+    }
+    label {
+        font-family: $fontSerif;
+        color: $colorPrimary;
+        @extend %fontSizeH3;
+    }
+    input,
+    textarea {
+        background: linear-gradient(180deg, $colorDefault 0%, $colorAccent 0%, $colorAccent 100%);
+        border: none;
+        padding: 0.5em;
+        font-family: $fontSans;
+        @extend %fontSizeBase;
+        height: 1.4em;
+        max-width: 600px;
+        width: 40vw;
+        &::placeholder {
+            color: $colorPrimary;
+            opacity: 0;
+            text-align: center;
+        }
+        &:focus {
+            outline: none;
+            background: linear-gradient(180deg, $colorDefault 94%, $colorAccent 94%, $colorAccent 100%);
+        }
+        &:global(.error) {
+            background: linear-gradient(180deg, $colorDefault 94%, red 94%, red 100%);
+        }
+    }
+    textarea {
+        height: 4.2em;
+        &:focus {
+            background: linear-gradient(180deg, $colorDefault 98%, $colorAccent 98%, $colorAccent 100%);
+        }
+        &:global(.error) {
+            background: linear-gradient(180deg, $colorDefault 98%, red 98%, red 100%);
+        }
+    }
+}
+
+
+button {
+    border: none;
+    padding: 0.5em;
+    font-family: $fontSerif;
+    @extend %fontSizeBase;
+    height: 1.4em;
+    max-width: 600px;
+    width: 40vw;
+    box-sizing: content-box;
+    color: $colorAccent;
+    background: none;
+    @include font-size (320px, 1920px, 20px, 52px);
+    svg {
+        width: 1em;
+    }
+    cursor: pointer;
+    &:disabled {
+        opacity: 0.5;
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
