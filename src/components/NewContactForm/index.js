@@ -3,28 +3,24 @@ import styles from './styles.module.scss'
 import Plx from 'react-plx'
 import ProximityFeedback from 'react-proximity-feedback'
 import Input from '../Input'
-import Textarea from '../Textarea'
 
-if (typeof window !== `undefined`) {
-  var inputs = document.getElementsByTagName('input', 'textarea');
+var inputs = document.getElementsByTagName('input', 'textarea');
 
-  for (var i = 0; i < inputs.length; i++) {
-    var input = inputs[i];
-    input.addEventListener('input', function() {
-      this.style.background = 'linear-gradient(180deg, #ECE2D4 95%, #EE8D0F 95%, #EE8D0F 100%)';
-    });
-  }
+for (var i = 0; i < inputs.length; i++) {
+  var input = inputs[i];
+  input.addEventListener('input', function() {
+    this.style.background = 'linear-gradient(180deg, #ECE2D4 95%, #EE8D0F 95%, #EE8D0F 100%) no-repeat';
+  });
 }
-  function validate(email, name, message) {
-    // true means invalid, so our conditions got reversed
-    if (typeof window !== `undefined`) {
-      return {
-        email: email.length === 0,
-        name: name.length === 0,
-        message: message.length === 0,
-      };
-    }
-  }
+
+  function validate(email, name) {
+  return {
+    email: email.length === 0,
+    name: name.length === 0,
+  };
+}
+
+
 
 
 const plxHeader = [
@@ -66,10 +62,6 @@ class SignUpForm extends Component {
     this.setState({ name: evt.target.value });
   };
 
-  handleMessageChange = evt =>  {
-      this.setState({ message: evt.target.value });
-  };
-
   handleBlur = field => evt => {
       this.setState({
         touched: { ...this.state.touched, [field]: true }
@@ -84,13 +76,13 @@ class SignUpForm extends Component {
   };
   
   canBeSubmitted() {
-    const errors = validate(this.state.email, this.state.name, this.state.message);
+    const errors = validate(this.state.email, this.state.name);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
   
   render() {
-    const errors = validate(this.state.email, this.state.name, this.state.message);
+    const errors = validate(this.state.email, this.state.name);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
 
     const shouldMarkError = field => {
@@ -115,7 +107,7 @@ class SignUpForm extends Component {
 
               <input type="hidden" name="formID" value="90688265328165" />
 
-              <ProximityFeedback throttleInMs={1}>
+              <ProximityFeedback throttleInMs={1} threshold={100}>
                 {({ ref, proximity }) => (
                   <ul>
                       <li>
@@ -150,17 +142,14 @@ class SignUpForm extends Component {
                               <label htmlFor="q3_email3">Email</label>
                       </li>
                       <li>
-                          <Textarea
+                          <textarea
                               className={shouldMarkError("message") ? "error" : ""}
                               name="q7_message"
                               data-component="input-textbox"
                               placeholder="Message"
-                              required
                               value={this.state.message}
-                              onChange={this.handleMessageChange}
-                              onBlur={this.handleBlur("message")}
                               >
-                          </Textarea>
+                          </textarea>
                           <label htmlFor="q7_message">Message</label>
                       </li>
                       <li data-type="control_button">
