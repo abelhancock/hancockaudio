@@ -14,16 +14,18 @@ if (typeof window !== `undefined`) {
       this.style.background = 'linear-gradient(180deg, #ECE2D4 95%, #EE8D0F 95%, #EE8D0F 100%)';
     });
   }
-
+}
   function validate(email, name, message) {
     // true means invalid, so our conditions got reversed
-    return {
-      email: email.length === 0,
-      name: name.length === 0,
-      message: message.length === 0,
-    };
+    if (typeof window !== `undefined`) {
+      return {
+        email: email.length === 0,
+        name: name.length === 0,
+        message: message.length === 0,
+      };
+    }
   }
-}
+
 
 const plxHeader = [
   {
