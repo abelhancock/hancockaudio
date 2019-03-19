@@ -5,7 +5,9 @@ import ProximityFeedback from 'react-proximity-feedback'
 import Input from '../Input'
 import Textarea from '../Textarea'
 
-var inputs = document.getElementsByTagName('input', 'textarea');
+if (typeof window !== `undefined`) {
+  var inputs = document.getElementsByTagName('input', 'textarea');
+}
 
 for (var i = 0; i < inputs.length; i++) {
   var input = inputs[i];
