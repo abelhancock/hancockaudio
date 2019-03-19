@@ -2,7 +2,7 @@ import React from 'react'
 
 const RisingFree = () => (
     <iframe
-        src="https://www.hancockaudio.com/rising-free"
+        src="https://abelhancock.wixsite.com/hancockaudio/rising-free"
         style={{
             width: '100vw',
             height: '100vh',
