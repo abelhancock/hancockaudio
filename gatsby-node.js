@@ -4,7 +4,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: "./src/components/NewContactForm",
+            test: "../src/components/NewContactForm",
             use: loaders.null(),
           },
         ],
