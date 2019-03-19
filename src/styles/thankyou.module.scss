@@ -1,0 +1,41 @@
+@import './global.scss';
+body {
+    padding: 0 calc(5vw + 48px);
+}
+.background {
+    background: $colorDefault;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.sectionThankYou {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        position: relative;
+        margin: 0.5em 0;
+    }
+    a {
+        position: fixed;
+        bottom: 2em;
+        svg {
+            transform: rotate(180deg);
+            width: 3ch;
+            display: block;
+            margin: 0 0 0.5em;
+        }
+    }
+    .accent {
+        background-color: $colorAccent;
+        width: 0.4ch;
+        height: 0.15ch;
+        @extend %fontSizeH1;
+    }
+}

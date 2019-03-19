@@ -80,3 +80,9 @@ body {
     }
     padding-bottom: 15vh;
 }
+
+@media screen and (max-width: $screenSmall) {
+    .sectionBio .bio {
+        width: 100%;
+    }
+}

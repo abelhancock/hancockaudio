@@ -103,3 +103,19 @@ ul {
     color: $colorError;
     opacity: 1;
 }
+
+@media screen and (max-width: $screenSmall) {
+    .header {
+        letter-spacing: 0.1em;
+    }
+    ul li {
+        flex-direction: column-reverse;
+        input,
+        textarea {
+            width: 100%;
+        }
+        button {
+            width: 100%;
+        }
+    }
+}
