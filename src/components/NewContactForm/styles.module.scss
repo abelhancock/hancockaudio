@@ -1,77 +1,104 @@
 @import 'src/styles/global.scss';
+.header {
+    @extend %fontSizeDisplayLarge;
+    font-family: $fontSerif;
+    width: 100%;
+    text-align: center;
+    color: $colorPrimary;
+    opacity: 0.05;
+    margin: auto;
+    margin-bottom: -0.2em;
+    padding: 0.5rem;
+    pointer-events: none;
+    letter-spacing: 0.3em;
+}
+
 ul {
     padding: 0;
     margin: 0;
-}
-li {
-    list-style: none;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &:last-of-type {
-        justify-content: flex-end;
+    li {
+        list-style: none;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+        &:last-of-type {
+            justify-content: flex-end;
+        }
+        label {
+            font-family: $fontSerif;
+            color: $colorPrimary;
+            @extend %fontSizeH3;
+            sup {
+                font-size: 50%;
+                opacity: 0;
+                transition: 0.05s;
+            }
+        }
+        input,
+        textarea {
+            background: linear-gradient(180deg, $colorDefault 0%, $colorAccent 0%, $colorAccent 100%);
+            border: none;
+            padding: 0.5em;
+            font-family: $fontSans;
+            @extend %fontSizeBase;
+            height: 1.9em;
+            max-width: 600px;
+            width: 40vw;
+            &::placeholder {
+                color: $colorPrimary;
+                opacity: 0;
+                text-align: center;
+            }
+            &:focus {
+                outline: none;
+                background: linear-gradient(180deg, $colorDefault 94%, $colorAccent 94%, $colorAccent 100%);
+            }
+            &:global(.error) {
+                background: linear-gradient(180deg, $colorDefault 94%, $colorError 94%, $colorError 100%);
+            }
+        }
+        textarea {
+            height: 4.2em;
+            &:focus {
+                background: linear-gradient(180deg, $colorDefault 98%, $colorAccent 98%, $colorAccent 100%);
+            }
+            &:global(.error) {
+                background: linear-gradient(180deg, $colorDefault 98%, red 98%, red 100%);
+            }
+        }
+        &:last-of-type {
+            flex-direction: row;
+        }
     }
-    label {
-        font-family: $fontSerif;
-        color: $colorPrimary;
-        @extend %fontSizeH3;
-    }
-    input,
-    textarea {
-        background: linear-gradient(180deg, $colorDefault 0%, $colorAccent 0%, $colorAccent 100%);
+
+    button {
         border: none;
         padding: 0.5em;
-        font-family: $fontSans;
+        font-family: $fontSerif;
         @extend %fontSizeBase;
         height: 1.4em;
         max-width: 600px;
         width: 40vw;
-        &::placeholder {
-            color: $colorPrimary;
-            opacity: 0;
-            text-align: center;
+        box-sizing: content-box;
+        color: $colorAccent;
+        background: none;
+        @include font-size (320px, 1920px, 20px, 52px);
+        svg {
+            width: 1em;
         }
-        &:focus {
-            outline: none;
-            background: linear-gradient(180deg, $colorDefault 94%, $colorAccent 94%, $colorAccent 100%);
-        }
-        &:global(.error) {
-            background: linear-gradient(180deg, $colorDefault 94%, red 94%, red 100%);
-        }
-    }
-    textarea {
-        height: 4.2em;
-        &:focus {
-            background: linear-gradient(180deg, $colorDefault 98%, $colorAccent 98%, $colorAccent 100%);
-        }
-        &:global(.error) {
-            background: linear-gradient(180deg, $colorDefault 98%, red 98%, red 100%);
+        cursor: pointer;
+        &:disabled {
+            opacity: 0.5;
+            &:hover {
+                cursor: not-allowed;
+            }
         }
     }
 }
 
-
-button {
-    border: none;
-    padding: 0.5em;
-    font-family: $fontSerif;
-    @extend %fontSizeBase;
-    height: 1.4em;
-    max-width: 600px;
-    width: 40vw;
-    box-sizing: content-box;
-    color: $colorAccent;
-    background: none;
-    @include font-size (320px, 1920px, 20px, 52px);
-    svg {
-        width: 1em;
-    }
-    cursor: pointer;
-    &:disabled {
-        opacity: 0.5;
-        &:hover {
-            cursor: not-allowed;
-        }
-    }
+:global(.error) + label sup {
+    color: $colorError;
+    opacity: 1;
 }

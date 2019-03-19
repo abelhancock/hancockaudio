@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
-import styles from './styles.module.scss';
+import React, { Component } from 'react'
+import styles from './styles.module.scss'
+import Plx from 'react-plx'
+import ProximityFeedback from 'react-proximity-feedback'
+import Input from '../Input'
+import Textarea from '../Textarea'
 
 var inputs = document.getElementsByTagName('input', 'textarea');
 
@@ -18,7 +22,21 @@ function validate(email, name, message) {
       message: message.length === 0,
     };
   }
-  
+  const plxHeader = [
+    {
+      start: 'self',
+      duration: '100vh',
+      properties: [
+        {
+          startValue: -40,
+          endValue: 10,
+          unit: '%',
+          property: 'translateY',
+        }
+      ]
+    }
+  ]
+
   class SignUpForm extends Component {
     constructor() {
       super();
@@ -79,6 +97,7 @@ function validate(email, name, message) {
 
       return (
         <div>
+            <Plx className={styles.header} parallaxData={ plxHeader }>contact</Plx>
             <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
             <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.10353" type="text/javascript"></script>
             <form
@@ -91,11 +110,12 @@ function validate(email, name, message) {
 
                 <input type="hidden" name="formID" value="90688265328165" />
 
-                <div>
+                <ProximityFeedback throttleInMs={1}>
+                  {({ ref, proximity }) => (
                     <ul>
                         <li>
-                            <label htmlFor="q6_name">Name</label>
-                            <input
+                            <Input
+                                proximity={proximity}
                                 className={shouldMarkError("name") ? "error" : ""}
                                 type="text"
                                 name="q6_name"
@@ -106,10 +126,11 @@ function validate(email, name, message) {
                                 onChange={this.handleNameChange}
                                 onBlur={this.handleBlur("name")}
                                 />
+                            <label htmlFor="q6_name">Name</label>
                         </li>
                         <li>
-                            <label htmlFor="q3_email3">Email</label>
-                            <input
+                            <Input
+                                proximity={proximity}
                                 className={shouldMarkError("email") ? "error" : ""}
                                 type="text"
                                 name="q3_email3"
@@ -121,10 +142,10 @@ function validate(email, name, message) {
                                 onChange={this.handleEmailChange}
                                 onBlur={this.handleBlur("email")}
                                 />
+                                <label htmlFor="q3_email3">Email</label>
                         </li>
                         <li>
-                            <label htmlFor="q7_message">Message</label>
-                            <textarea
+                            <Textarea
                                 className={shouldMarkError("message") ? "error" : ""}
                                 name="q7_message"
                                 data-component="input-textbox"
@@ -134,10 +155,12 @@ function validate(email, name, message) {
                                 onChange={this.handleMessageChange}
                                 onBlur={this.handleBlur("message")}
                                 >
-                            </textarea>
+                            </Textarea>
+                            <label htmlFor="q7_message">Message</label>
                         </li>
                         <li data-type="control_button">
                             <button
+                                ref={ref}
                                 type="submit"
                                 data-component="button"
                                 id="submit"
@@ -150,7 +173,8 @@ function validate(email, name, message) {
                             </button>
                         </li>
                     </ul>
-                </div>
+                    )}
+                </ProximityFeedback>
                 <input type="hidden" id="simple_spc1" name="simple_spc1" value="90688265328165" />
                 <script type="text/javascript"> document.getElementById("si" + "mple" + "_spc1").value = "90688265328165-90688265328165"; </script>
             </form>

@@ -1,4 +1,4 @@
-@import '/node_modules/normalize.css/normalize.css';
+@import './normalize.scss';
 @import './variables.scss';
 @import './mixins.scss';
 @import './extendables.scss';
@@ -15,6 +15,11 @@
 html {
     color: $colorPrimary;
     box-sizing: border-box;
+}
+
+::selection {
+    color: white;
+    background: $colorAccent;
 }
 
 h1,
