@@ -1,18 +1,30 @@
 import React from 'react'
+import styles from '../styles/rising-free.module.scss'
+import Plx from 'react-plx'
+
+const plxElement = [
+    {
+      start: 'self',
+      duration: '35vh',
+      properties: [
+        {
+          startValue: 1,
+          endValue: 0,
+          property: 'opacity',
+        }
+      ]
+    }
+  ]
 
 const RisingFree = () => (
-    <iframe
+<div style={{display: 'flex'}}>
+    <Plx className={styles.element} parallaxData={ plxElement }/>
+    <img src="images/rising-free-soundtrack.jpg" alt="Rising Free soundtrack artwork"/>
+    <iframe 
         src="https://abelhancock.wixsite.com/hancockaudio/rising-free"
-        style={{
-            width: '100vw',
-            height: '100vh',
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            border: 'none',
-        }}
         title="Rising Free Soundtrack"
-        ></iframe>
+        className={styles.iframe}></iframe>
+</div>
 )
 
 export default RisingFree
