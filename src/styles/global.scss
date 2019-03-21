@@ -3,15 +3,6 @@
 @import './mixins.scss';
 @import './extendables.scss';
 
-@font-face {
-    font-family: "Gotham Pro";
-    src: ("./static/font/GothaProReg.otf");
-}
-@font-face {
-    font-family: "Didot";
-    src: ("./static/font/Didot.ttf");
-}
-
 html {
     color: $colorPrimary;
     box-sizing: border-box;

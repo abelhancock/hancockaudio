@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `Abel Hancock | Musician, Composer`,
@@ -7,20 +9,21 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-root-import`,
     {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'src',
 				path: './src',
 			},
-		},
+    },
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/static/images`,
 				name: 'images',
 			},
-		},
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -37,5 +40,16 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        static: path.join(__dirname, 'static'),
+        
+        src: path.join(__dirname, 'src'),
+        components: path.join(__dirname, 'src/components'),
+        pages: path.join(__dirname, 'src/pages'),
+        styles: path.join(__dirname, 'src/styles')
+      }
+    }
   ],
 };

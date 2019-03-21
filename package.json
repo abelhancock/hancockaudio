@@ -12,7 +12,8 @@
     "gatsby-plugin-react-helmet": "^3.0.8",
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.25",
-    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-plugin-typescript": "^2.0.11",
+    "gatsby-source-filesystem": "^2.0.27",
     "gatsby-transformer-sharp": "^2.1.15",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
@@ -25,6 +26,7 @@
     "react-proximity-feedback": "^1.1.0"
   },
   "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.16.4"
   },
   "keywords": [
