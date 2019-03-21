@@ -104,7 +104,7 @@ ul {
     opacity: 1;
 }
 
-@media screen and (max-width: $screenSmall) {
+@include for-phone-only {
     .header {
         letter-spacing: 0.1em;
     }

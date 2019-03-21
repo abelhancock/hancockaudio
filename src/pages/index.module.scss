@@ -47,6 +47,7 @@ body {
                         background: $colorPrimary;
                         height: 2px;
                         width: 100%;
+                        min-width: 1em;
                         margin: 0 0.5em;
                         opacity: 0.6;
                     }
@@ -83,7 +84,7 @@ body {
     padding-bottom: 15vh;
 }
 
-@media screen and (max-width: $screenSmall) {
+@include for-phone-only {
     .sectionBio .bio {
         width: 100%;
     }

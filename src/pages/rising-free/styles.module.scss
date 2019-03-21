@@ -17,7 +17,7 @@
         margin: auto;
         position: relative;
         top: 0;
-        @media screen and (max-width: $screenSmall) {
+        @include for-phone-only {
             position: absolute;
             width: 100vw;
             height: 100vw;
@@ -31,7 +31,7 @@
         top: 70vw;
         left: 0;
         border: none;
-        @media screen and (max-width: $screenSmall) {
+        @include for-phone-only {
             height: 1380px;
             top: 100vw;
         }
