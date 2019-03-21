@@ -1,12 +1,13 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "hancockaudio.com",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "1.0.0",
+  "author": "Abel Hancock <abel@hancockaudio.com>",
   "dependencies": {
     "gatsby": "^2.1.27",
     "gatsby-image": "^2.0.31",
+    "gatsby-plugin-google-tagmanager": "^2.0.10",
     "gatsby-plugin-manifest": "^2.0.22",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.8",
@@ -30,23 +31,26 @@
     "prettier": "^1.16.4"
   },
   "keywords": [
-    "gatsby"
+    "abel hancock",
+    "musician",
+    "composer",
+    "film music",
+    "cinematic"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run build"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/abelhancock/hancockaudio"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/abelhancock/hancockaudio/issues"
   }
 }

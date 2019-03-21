@@ -3,13 +3,28 @@ const path = require('path')
 module.exports = {
   siteMetadata: {
     title: `Abel Hancock | Musician, Composer`,
-    description: `Abel Hancock`,
+    siteUrl: `https://hancockaudio.com`,
+    description: `Abel Hancock is a musician and composer living in Los Angeles, CA`,
     author: `Abel Hancock`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-root-import`,
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: "GTM-5D23MB3",
+   
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+   
+        // Specify optional GTM environment details.
+        gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
+        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
+      },
+    },
     {
 			resolve: 'gatsby-source-filesystem',
 			options: {

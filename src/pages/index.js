@@ -2,7 +2,8 @@ import React from 'react'
 import styles from './index.module.scss'
 import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
-import NewContactForm from 'components/NewContactForm';
+import NewContactForm from 'components/NewContactForm'
+import SEO from 'components/SEO'
 
 const plxAccent = [
   {
@@ -104,6 +105,17 @@ const plxMe = [
 
 const IndexPage = () => (
   <div>
+    <SEO 
+      title={"Abel Hancock | Composer – Musician"}
+      keywords={[
+        "abel hancock",
+        "musician",
+        "composer",
+        "film music",
+        "cinematic"
+      ]}
+      description={"Abel Hancock is a musician and composer living in Los Angeles, CA"}
+      />
     <Plx className={styles.background}/>
     <Plx className={styles.accent}
          parallaxData={ plxAccent} />
@@ -114,9 +126,9 @@ const IndexPage = () => (
           <span>
             Hancock
             <h4>
-              <span>Musician</span>
-              <div></div>
               <span>Composer</span>
+              <div></div>
+              <span>Musician</span>
             </h4>
           </span>
         </h1>
