@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from 'styles/index.module.scss'
+import styles from './index.module.scss'
 import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
 import NewContactForm from 'components/NewContactForm';

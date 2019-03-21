@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/thankyou.module.scss'
+import styles from './styles.module.scss'
 import { Link } from 'gatsby';
 
 const IndexPage = () => (

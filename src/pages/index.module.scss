@@ -1,4 +1,4 @@
-@import './global.scss';
+@import 'styles/global.scss';
 
 body {
     padding: 0 calc(5vw + 48px);
@@ -62,6 +62,7 @@ body {
         height: 90vh;
         display: flex;
         justify-content: center;
+        align-items: flex-end;
         z-index: -1;
         img {
             opacity: 0.75;

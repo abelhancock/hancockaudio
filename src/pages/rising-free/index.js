@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/rising-free.module.scss'
+import styles from './styles.module.scss'
 import Plx from 'react-plx'
 
 const plxElement = [
@@ -17,7 +17,7 @@ const plxElement = [
   ]
 
 const RisingFree = () => (
-<div style={{display: 'flex'}}>
+<div style={{display: 'flex'}} className={styles.sectionRisingFree}>
     <Plx className={styles.element} parallaxData={ plxElement }/>
     <img src="images/rising-free-soundtrack.jpg" alt="Rising Free soundtrack artwork"/>
     <iframe 
