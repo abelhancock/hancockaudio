@@ -19,7 +19,7 @@ const plxElement = [
 const RisingFree = () => (
 <div style={{display: 'flex'}} className={styles.sectionRisingFree}>
     <Plx className={styles.element} parallaxData={ plxElement }/>
-    <img src="images/rising-free-soundtrack.jpg" alt="Rising Free soundtrack artwork"/>
+    <img src="/images/rising-free-soundtrack.jpg" alt="Rising Free soundtrack artwork"/>
     <iframe 
         src="https://abelhancock.wixsite.com/hancockaudio/rising-free"
         title="Rising Free Soundtrack"
