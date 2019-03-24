@@ -115,6 +115,7 @@ const IndexPage = () => (
         "cinematic"
       ]}
       description={"Abel Hancock is a musician and composer living in Los Angeles, CA"}
+      robots={"index,follow"}
       />
     <Plx className={styles.background}/>
     <Plx className={styles.accent}
