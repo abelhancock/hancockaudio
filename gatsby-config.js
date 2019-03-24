@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-root-import`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
