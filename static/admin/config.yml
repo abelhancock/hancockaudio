@@ -2,8 +2,13 @@ backend:
   name: git-gateway
   branch: master
 
+publish_mode: editorial_workflow
+
 media_folder: static/img
 public_folder: /img
+
+site_url: https://hancockaudio.com
+display_url: https://hancockaudio.com
 
 collections:
   - name: "blog"
@@ -18,3 +23,19 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name (required): "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    delete: true
+    extension: "md"
+    format: "md"
+    frontmatter_delimiter: "---"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+    editor:
+     preview: true
