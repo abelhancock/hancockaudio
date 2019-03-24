@@ -30,7 +30,7 @@ collections:
     create: true
     delete: true
     extension: "md"
-    format: "md"
+    format: "yaml-frontmatter"
     frontmatter_delimiter: "---"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
