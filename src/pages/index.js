@@ -4,6 +4,7 @@ import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
 import NewContactForm from 'components/NewContactForm'
 import SEO from 'components/SEO'
+import AudioPlayer from 'components/AudioPlayer'
 
 const plxAccent = [
   {
@@ -101,7 +102,7 @@ const plxMe = [
       }
     ]
   }
-]
+];
 
 const IndexPage = () => (
   <div>
@@ -135,7 +136,7 @@ const IndexPage = () => (
         </h1>
       </div>
       <Plx className={styles.me} parallaxData={plxMe}>
-        <ProgressiveImage src="images/abel-hancock.png">
+        <ProgressiveImage src="images/me-color-bg-wide.jpg">
           {src => <img src={src} alt="me" />}
         </ProgressiveImage>
       </Plx>
@@ -151,6 +152,9 @@ const IndexPage = () => (
         </p>
         <div id="endBioContent"></div>
         </div>
+    </section>
+    <section className={styles.sectionMusic}>
+      <AudioPlayer />
     </section>
 
     <NewContactForm />

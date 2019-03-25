@@ -65,9 +65,23 @@ body {
         justify-content: center;
         align-items: flex-end;
         z-index: -1;
+
+        //temp
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        min-width: 768px;
+        // background-image: url('/images/me-color-bg-wide.png');
+        // background-size: auto 100%;
+        // background-position-x: 50%;
+        // background-color: #fdfdfc;
+        // background-blend-mode: multiply;
+        // opacity: 0.9;
         img {
-            opacity: 0.75;
-            max-height: 100%;
+            opacity: 0.9;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
@@ -89,3 +103,7 @@ body {
         width: 100%;
     }
 }
+
+.sectionMusic {
+    display: none;
+  }
