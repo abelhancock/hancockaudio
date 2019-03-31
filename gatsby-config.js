@@ -47,6 +47,7 @@ module.exports = {
       options: {
         static: path.join(__dirname, 'static'),
         images: path.join(__dirname, 'static/images'),
+        audio: path.join(__dirname, 'static/audio'),
         
         src: path.join(__dirname, 'src'),
         components: path.join(__dirname, 'src/components'),
