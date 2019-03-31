@@ -1,0 +1,133 @@
+@import 'src/styles/global.scss';
+
+.app {
+    .controls {
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        .playPause {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 54 54' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 37.976V16.024a1 1 0 0 1 1.607-.795l14.354 10.977a1 1 0 0 1 0 1.588L21.608 38.771A1 1 0 0 1 20 37.976z' fill='%232D2A26'/%3E%3C/svg%3E");
+            border: 1px solid;
+            border-color: $colorPrimary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.1s ease-in-out;
+            }
+        .trackTitle {
+            padding-left: 2em;
+            font-family: $fontSerif;
+            cursor: pointer;
+            transition: 0.1s ease-in-out;
+        }
+        time {
+            margin-left: auto;
+            font-family: $fontSerif;
+            transition: 0.1s ease-in-out;
+        }
+        &:hover {
+            .playPause {
+                border-color: $colorAccent;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 54 54' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 37.976V16.024a1 1 0 0 1 1.607-.795l14.354 10.977a1 1 0 0 1 0 1.588L21.608 38.771A1 1 0 0 1 20 37.976z' fill='%23EE8D0F'/%3E%3C/svg%3E");
+            }
+            .trackTitle, time {
+                color: $colorAccent;
+            }
+        }
+        &[data-playstate="playing"] {
+            .playPause {
+                border-color: $colorAccent;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 54 54' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='16' width='5' height='22' rx='2.5' fill='%23EE8D0F'/%3E%3Crect x='29' y='16' width='5' height='22' rx='2.5' fill='%23EE8D0F'/%3E%3C/svg%3E");            
+            }
+            .trackTitle, time {
+                color: $colorAccent;
+            }
+        }
+        &[data-playstate="paused"] {
+            .playPause:hover {
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 54 54' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 37.976V16.024a1 1 0 0 1 1.607-.795l14.354 10.977a1 1 0 0 1 0 1.588L21.608 38.771A1 1 0 0 1 20 37.976z' fill='%23EE8D0F'/%3E%3C/svg%3E"); 
+            }
+        }
+
+    }
+    .volume {
+        display: none;
+    }
+    .mute {
+        display: none;
+    }
+    .trackTimeline {
+        opacity: 1;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        height: 15px;
+        margin-bottom: 40px;
+        .seek {
+            width: 100%;  
+            cursor: pointer;  
+            position: absolute; 
+            opacity: 0;    
+        }
+        .played {
+            height: 5px;
+            background: $colorAccent;
+            border-radius: 2.5px;
+            position: absolute;
+            pointer-events: none;
+            transform: scaleX(1);
+            transition: 0.3s ease-in-out;
+            transform-origin: left;
+            time {
+                font-size: 12px;
+                font-family: $fontSans;
+                background-color: $colorDefault;
+                padding: 0.5em;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translate(calc(100% + 0.5px), -9.5px);
+                color: $colorAccent;
+                opacity: 0;
+                transition: 0.1s ease-in-out;
+            }
+        }
+        .loaded {
+            height: 1px;
+            background: $colorAccent;
+            position: absolute;
+            pointer-events: none;
+            transform: scaleX(1);
+            transition: 0.5s ease-in-out;
+            transform-origin: left;
+        }
+        .trackLength {
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            pointer-events: none;
+            background: $colorPrimary;
+            opacity: 0.1;
+            transform: scaleX(1);
+            transition: 0.2s ease-in-out;
+            transform-origin: left;
+        }
+        &:hover {
+            time {
+                opacity: 1;
+            }
+        }
+        &[data-playstate="paused"][data-playduration="0"] {
+            opacity: 0;
+            .trackLength, .loaded, .played {
+                transform: scaleX(0);
+            }
+        }
+    }
+}
