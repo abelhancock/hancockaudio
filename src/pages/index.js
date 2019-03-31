@@ -144,17 +144,26 @@ const IndexPage = () => (
 
     <section className={styles.sectionBio}>
       <div className={styles.bio}>
-        <p id="bioContent">
-          <span>I have been creating music for over 17 years as a hobby, a profession, and part of how I express myself.</span>
-          <br></br>
-          <br></br>
-          <span>I love using my musical, technical, and creative talent to help you express emotions and ideas in any project.</span>
-        </p>
+        <div id="bioContent">
+          <h3>About Me</h3>
+          <p>
+            <span>I have been creating music for over 17 years as a hobby, a profession, and part of how I express myself.</span>
+            <br></br>
+            <br></br>
+            <span>I love using my musical, technical, and creative talent to help you express emotions and ideas in any project.</span>
+          </p>
+        </div>
         <div id="endBioContent"></div>
         </div>
     </section>
     <section className={styles.sectionMusic}>
-      <AudioPlayer />
+      {/* <AudioPlayer title={"Eminence"} file={"audio/times-vol-1/01-Eminence.mp3"} test={[
+        "abel hancock",
+        "musician",
+        "composer",
+        "film music",
+        "cinematic"
+      ]}/> */}
     </section>
 
     <NewContactForm />

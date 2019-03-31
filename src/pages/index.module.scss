@@ -94,6 +94,9 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        h3 {
+            padding-bottom: 0.5em;
+        }
     }
     padding-bottom: 15vh;
 }
@@ -105,5 +108,5 @@ body {
 }
 
 .sectionMusic {
-    display: none;
+    //display: none;
   }
