@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Plx from 'react-plx'
 import AudioPlayer from 'components/AudioPlayer'
-import ProgressiveImage from 'react-progressive-image'
 
 const plxDividerContainer = [
     {
