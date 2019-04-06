@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.scss'
 import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
-import NewContactForm from 'components/NewContactForm'
+import ContactForm from 'components/ContactForm'
 import SEO from 'components/SEO'
 import RecentWork from 'components/RecentWork'
 import Layout from 'components/Layout'
@@ -97,7 +97,7 @@ const plxMe = [
     duration: '15vh',
     properties: [
       {
-        startValue: 0.75,
+        startValue: 1,
         endValue: 0,
         property: 'opacity',
       }
@@ -202,7 +202,7 @@ const IndexPage = () => (
         </div>
     </section>
     <RecentWork />
-    <NewContactForm />
+    <ContactForm />
   </Layout>
 )
 
