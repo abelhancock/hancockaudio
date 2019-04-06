@@ -87,14 +87,18 @@ class AudioPlayer extends Component {
             <Duration seconds={duration}/>
           </div>
           <div className={styles.trackTimeline} data-playstate={playing ? 'playing' : 'paused'} data-playduration={played}>
+            <label>
+              <div style={{transform: 'scale(0)'}}>Seek</div>
             <input
               className={styles.seek}
+              name="seek"
               type='range' min={0} max={1} step='any'
               value={played}
               onMouseDown={this.onSeekMouseDown}
               onChange={this.onSeekChange}
               onMouseUp={this.onSeekMouseUp}
             />
+            </label>
             <div className={styles.trackLength} />
             <div className={styles.loaded} style={{width: 'calc(100% * ' + loaded + ')'}} />
             <div className={styles.played} style={{width: 'calc(100% * ' + played + ')'}} >

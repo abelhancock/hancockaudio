@@ -13,7 +13,7 @@ const plxHeader = [
     duration: '100vh',
     properties: [
       {
-        startValue: -40,
+        startValue: -70,
         endValue: 10,
         unit: '%',
         property: 'translateY',
@@ -27,7 +27,7 @@ class SignUpForm extends Component {
   render() {
 
     return (
-      <div>
+      <section className={styles.sectionContact}>
           <Plx className={styles.header} parallaxData={ plxHeader }>contact</Plx>
           <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
           <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.10353" type="text/javascript"></script>
@@ -49,6 +49,7 @@ class SignUpForm extends Component {
                               proximity={proximity}
                               type="text"
                               name="q6_name"
+                              id="q6_name"
                               data-type="input-textbox"
                               data-component="textbox"
                               required
@@ -60,6 +61,7 @@ class SignUpForm extends Component {
                               proximity={proximity}
                               type="text"
                               name="q3_email3"
+                              id="q3_email3"
                               data-type="input-textbox"
                               placeholder="Email"
                               data-component="textbox"
@@ -70,6 +72,7 @@ class SignUpForm extends Component {
                       <li>
                           <textarea
                               name="q7_message"
+                              id="q7_message"
                               data-component="input-textbox"
                               placeholder="Message"
                               >
@@ -96,7 +99,7 @@ class SignUpForm extends Component {
               <script type="text/javascript"> document.getElementById("si" + "mple" + "_spc1").value = "90688265328165-90688265328165"; </script>
           </form>
           <script type="text/javascript">JotForm.ownerView=true;</script>
-      </div>
+      </section>
     )
   }
 }

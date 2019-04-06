@@ -11,6 +11,20 @@ body {
     right: 0;
     bottom: 0;
     z-index: -1;
+    width: 200%;
+    transform: translateX(0%);
+    &:global(.Plx--in-1),
+    &:global(.Plx--between),
+    &:global(.Plx--in-2),
+    &:global(.Plx--below) {
+        background: linear-gradient(90deg, $colorPrimary 50%, $colorDefault 50%) !important;
+    }
+    @media (max-width: 900px) {
+        transition: 0.2s;
+        &:global(.Plx--between-1-and-2) {
+            transform: translateX(-50%) !important;
+        }
+    }
 }
 .accent {
     background-color: $colorAccent;
@@ -65,18 +79,10 @@ body {
         justify-content: center;
         align-items: flex-end;
         z-index: -1;
-
-        //temp
         top: 0;
         width: 100vw;
         height: 100vh;
         min-width: 768px;
-        // background-image: url('/images/me-color-bg-wide.png');
-        // background-size: auto 100%;
-        // background-position-x: 50%;
-        // background-color: #fdfdfc;
-        // background-blend-mode: multiply;
-        // opacity: 0.9;
         img {
             opacity: 0.9;
             width: 100%;
@@ -98,12 +104,13 @@ body {
             padding-bottom: 0.5em;
         }
     }
-    padding-bottom: 15vh;
+    padding-bottom: 5vh;
 }
 
 @include for-phone-only {
     .sectionBio .bio {
         width: 100%;
+        padding-bottom: 18vh;
     }
 }
 

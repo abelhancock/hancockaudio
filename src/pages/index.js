@@ -4,7 +4,8 @@ import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
 import NewContactForm from 'components/NewContactForm'
 import SEO from 'components/SEO'
-import AudioPlayer from 'components/AudioPlayer'
+import RecentWork from 'components/RecentWork'
+import Layout from 'components/Layout'
 
 const plxAccent = [
   {
@@ -104,8 +105,51 @@ const plxMe = [
   }
 ];
 
+const plxBackground = [
+  {
+    start: '#sectionRecentWork',
+    startOffset: '40vh',
+    duration: '20vh',
+    properties: [
+      {
+        startValue: '#ECE2D4',
+        endValue: '#2D2A26',
+        property: 'backgroundColor',
+      }
+    ]
+  },
+  {
+    start: '#sectionRecentWork',
+    startOffset: '60vh',
+    duration: '30vh',
+    easing: 'easeInOut',
+    properties: [
+      {
+        startValue: 0,
+        endValue: -25,
+        unit: '%',
+        property: 'translateX',
+      }
+    ]
+  },
+  {
+    start: '#sectionRecentWorkEnd',
+    startOffset: '-20vh',
+    duration: '30vh',
+    easing: 'easeInOut',
+    properties: [
+      {
+        startValue: -25,
+        endValue: 0,
+        unit: '%',
+        property: 'translateX',
+      }
+    ]
+  } 
+]
+
 const IndexPage = () => (
-  <div>
+  <Layout>
     <SEO 
       title={"Abel Hancock | Composer – Musician"}
       keywords={[
@@ -118,7 +162,8 @@ const IndexPage = () => (
       description={"Abel Hancock is a musician and composer living in Los Angeles, CA"}
       robots={"index,follow"}
       />
-    <Plx className={styles.background}/>
+    <Plx className={styles.background}
+         parallaxData={ plxBackground }/>
     <Plx className={styles.accent}
          parallaxData={ plxAccent} />
     <section className={styles.sectionHello}>
@@ -136,7 +181,7 @@ const IndexPage = () => (
         </h1>
       </div>
       <Plx className={styles.me} parallaxData={plxMe}>
-        <ProgressiveImage src="images/me-color-bg-wide.jpg">
+        <ProgressiveImage src="images/me-color-bg-wide.jpg" placeholder="images/me-color-bg-wide-tiny.jpg">
           {src => <img src={src} alt="me" />}
         </ProgressiveImage>
       </Plx>
@@ -156,18 +201,9 @@ const IndexPage = () => (
         <div id="endBioContent"></div>
         </div>
     </section>
-    <section className={styles.sectionMusic}>
-      {/* <AudioPlayer title={"Eminence"} file={"audio/times-vol-1/01-Eminence.mp3"} test={[
-        "abel hancock",
-        "musician",
-        "composer",
-        "film music",
-        "cinematic"
-      ]}/> */}
-    </section>
-
+    <RecentWork />
     <NewContactForm />
-  </div>
+  </Layout>
 )
 
 export default IndexPage

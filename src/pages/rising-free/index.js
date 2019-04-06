@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Plx from 'react-plx'
 import SEO from 'components/SEO'
+import ProgressiveImage from 'react-progressive-image'
 
 const plxElement = [
     {
@@ -32,7 +33,9 @@ const RisingFree = () => (
         robots={"noindex, nofollow, noimageindex, noarchive, nocache"}
         />
   <Plx className={styles.element} parallaxData={ plxElement }/>
-  <img src="/images/rising-free-soundtrack.jpg" alt="Rising Free soundtrack artwork"/>
+  <ProgressiveImage src="images/rising-free-soundtrack.jpg" placeholder="images/rising-free-soundtrack-tiny.jpg">
+      {src => <img src={src} alt="Rising Free Soundtrack artwork" />}
+  </ProgressiveImage>
   <iframe 
       src="https://abelhancock.wixsite.com/hancockaudio/rising-free"
       title="Rising Free Soundtrack"

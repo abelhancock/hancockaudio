@@ -7,6 +7,9 @@
 %fontSizeH1 {
     @include font-size (320px, 1920px, 40px, 162px);
 }
+%fontSizeH2 {
+    @include font-size (320px, 1920px, 34px, 72px);
+}
 %fontSizeH3 {
     @include font-size (320px, 1920px, 28px, 38px);
 }

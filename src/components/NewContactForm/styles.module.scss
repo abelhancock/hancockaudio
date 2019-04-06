@@ -1,11 +1,18 @@
 @import 'src/styles/global.scss';
+.sectionContact {
+    width: 100%;
+    margin-left: calc(-5vw - 48px);
+    padding: 0 calc(5vw + 48px);
+    overflow: visible;
+    background: $colorDefault;
+}
 .header {
     @extend %fontSizeDisplayLarge;
     font-family: $fontSerif;
     width: 100%;
     text-align: center;
     color: $colorPrimary;
-    opacity: 0.05;
+    opacity: 0.2;
     margin: auto;
     margin-bottom: -0.2em;
     padding: 0.5rem;
@@ -29,7 +36,7 @@ ul {
         label {
             font-family: $fontSerif;
             color: $colorPrimary;
-            @extend %fontSizeH3;
+            @extend %fontSizeH2;
             sup {
                 font-size: 50%;
                 opacity: 0;

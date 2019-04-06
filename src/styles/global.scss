@@ -43,6 +43,10 @@ h1 {
     @extend %fontSizeH1;
     font-weight: 400;
 }
+h2 {
+    @extend %fontSizeH2;
+    font-weight: 400;
+}
 h3 {
     @extend %fontSizeH3;
     font-weight: 400;

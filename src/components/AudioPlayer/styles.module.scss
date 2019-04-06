@@ -69,11 +69,15 @@
         justify-content: center;
         height: 15px;
         margin-bottom: 40px;
+        label {
+            height: 0;
+        }
         .seek {
             width: 100%;  
             cursor: pointer;  
             position: absolute; 
-            opacity: 0;    
+            opacity: 0;   
+            top: 0; 
         }
         .played {
             height: 5px;
