@@ -13,6 +13,9 @@
         width: 2px;
         height: 100vh;
         z-index: 2;
+        @media (max-width: 900px) {
+            display: none;
+        }
         .divider {
             position: absolute;
             background: $colorAccent;
@@ -39,6 +42,9 @@
         width: 50%;
         height: 100%;
         padding: 0 5vw;
+        @media (max-width: 900px) {
+            padding: 0 calc(5vw + 48px);
+        }
     }
     .left {
         .leftContent {
@@ -47,15 +53,6 @@
             transition: opacity 0.3s;
             transform: translateY(0%);
             height: 100px;
-            // img {
-            //     width: 100%;
-            //     filter: blur(7px);
-            // }
-            // h3 {
-            //     color: $colorDefault;
-            //     text-align: center;
-            //     letter-spacing: 0.3em;
-            // }
             .staff {
                 margin: auto;
                 width: 80%;
@@ -160,6 +157,9 @@
     }
     .right {
         opacity: 0;
+        @media (max-width: 900px) {
+            opacity: 1 !important;
+        }
         h2 {
             margin-bottom: 1em;
         }
@@ -172,13 +172,14 @@
             left: 0;
             transform-origin: left;
             @media (max-width: 900px) {
-                transition: 0.2s;
+                display: none;
             }
         }
     }
 }
 @media (max-width: 900px) {
     .sectionRecentWork {
+        padding-bottom: 80vw;
         .left {
             display: none;
         }
