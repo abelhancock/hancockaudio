@@ -33,7 +33,7 @@ class ContactForm extends Component {
               className={styles.form}
               method="post"
               name="Contact"
-              action="/thank-you"
+              action="/thank-you/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               >
