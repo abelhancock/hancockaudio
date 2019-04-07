@@ -40,14 +40,11 @@ class ContactForm extends Component {
               <ProximityFeedback throttleInMs={1} threshold={100}>
                 {({ ref, proximity }) => (
                   <ul>
-                    <li style={{display: 'none'}}>
-                          <Input
-                              proximity={proximity}
-                              type="text"
+                    <li>
+                          <input
+                              type="hidden"
                               name="bot-field"
-                              id="name1"
                               />
-                          <label htmlFor="name1">Name</label>
                       </li>
                       <li>
                           <Input
