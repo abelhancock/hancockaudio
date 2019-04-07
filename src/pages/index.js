@@ -6,6 +6,7 @@ import ContactForm from 'components/ContactForm'
 import SEO from 'components/SEO'
 import RecentWork from 'components/RecentWork'
 import Layout from 'components/Layout'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const plxAccent = [
   {
@@ -89,7 +90,46 @@ const plxAccent = [
     ]
   }
 ];
-
+const plxScrollIndicator = [
+  {
+    start: 0,
+    startOffset: 32,
+    duration: 40,
+    properties: [
+      {
+        startValue: 1,
+        endValue: 0,
+        property: 'opacity',
+      }
+    ]
+  }
+]
+const plxScrollLine = [
+  {
+    start: 0,
+    duration: 32,
+    properties: [
+      {
+        startValue: 1,
+        endValue: 0,
+        property: 'scaleY',
+      }
+    ]
+  }
+]
+const plxContainerBackground = [
+  {
+    start: 0,
+    duration: '60vh',
+    properties: [
+      {
+        startValue: 0.7,
+        endValue: 0,
+        property: 'opacity',
+      }
+    ]
+  }
+]
 const plxMe = [
   {
     start: '#endBioContent',
@@ -166,9 +206,16 @@ const IndexPage = () => (
          parallaxData={ plxBackground }/>
     <Plx className={styles.accent}
          parallaxData={ plxAccent} />
+    <Plx className={styles.scrollIndicator}
+         parallaxData={plxScrollIndicator}>
+      <AnchorLink offset="200" href='#aboutMeEnd'>scroll</AnchorLink>
+      <Plx parallaxData={plxScrollLine} />
+    </Plx>
     <section className={styles.sectionHello}>
       <div className={styles.aboutMe}>
         <h1>
+          <Plx className={styles.containerBackground}
+               parallaxData={plxContainerBackground}/>
           <span>Abel</span>
           <span>
             Hancock
@@ -180,6 +227,7 @@ const IndexPage = () => (
           </span>
         </h1>
       </div>
+      <div className={styles.anchorLink} id="aboutMeEnd">{null}</div>
       <Plx className={styles.me} parallaxData={plxMe}>
         <ProgressiveImage src="images/me-color-bg-wide.jpg" placeholder="images/me-color-bg-wide-tiny.jpg">
           {src => <img src={src} alt="me" />}

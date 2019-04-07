@@ -57,3 +57,21 @@ module.exports = {
     }
   ],
 };
+
+exports.onCreateWebpackConfig = ({
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          loader: 'css-loader',
+          options: {
+            modules: true,
+          },
+        },
+      ],
+    },
+  })
+}

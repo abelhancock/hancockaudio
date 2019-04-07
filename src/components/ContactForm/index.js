@@ -28,7 +28,15 @@ class ContactForm extends Component {
 
     return (
       <section className={styles.sectionContact}>
-          <Plx className={styles.header} parallaxData={ plxHeader }>contact</Plx>
+          <Plx className={styles.header} parallaxData={ plxHeader }>
+            <span>C</span>
+            <span>O</span>
+            <span>N</span>
+            <span>T</span>
+            <span>A</span>
+            <span>C</span>
+            <span>T</span>
+          </Plx>
           <form
               className={styles.form}
               method="post"
@@ -88,7 +96,7 @@ class ContactForm extends Component {
                             type="submit"
                             id="submit"
                             > 
-                            Submit <svg viewBox="0 0 31 13" xmlns="http://www.w3.org/2000/svg">
+                            Send<svg viewBox="0 0 31 13" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.1113 5.00195C24.1465 3.85091 23.1393 2.18359 22.0898 0H23.918C26.0677 2.53906 28.3529 4.41797 30.7734 5.63672V6.55078C28.3529 7.76953 26.0677 9.64844 23.918 12.1875H22.0898C23.1393 10.0039 24.1465 8.33659 25.1113 7.18555H0V5.00195H25.1113Z" fill="currentColor"/>
 </svg>
                         </button>

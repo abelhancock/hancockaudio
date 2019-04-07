@@ -60,4 +60,18 @@ p {
     font-weight: 400;
 }
 
+*:focus {
+    // outline: none;
+    // border: 1px solid !important;
+    // border-image-source: url('/images/focusBorder.svg') !important;
+    // border-image-slice: 1 !important;
+    outline-color: currentColor;
+}
+
+.anchorLink {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    left: 0;
+}
 //MOBILE

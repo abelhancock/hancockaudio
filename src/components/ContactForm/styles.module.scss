@@ -7,18 +7,22 @@
     background: $colorDefault;
 }
 .header {
-    @extend %fontSizeDisplayLarge;
+    @extend %fontSizeDisplaySmall;
     font-family: $fontSerif;
     width: 100%;
     text-align: center;
     color: $colorPrimary;
-    opacity: 0.2;
+    opacity: 0.05;
     margin: auto;
     margin-bottom: -0.2em;
-    padding: 0.5rem;
+    padding: 0;
     pointer-events: none;
-    letter-spacing: 0.3em;
     transform: translateY(-70%);
+    text-transform: uppercase;
+    line-height: 150%;
+    font-family: "Sans";
+    display: flex;
+    justify-content: space-between;
 }
 
 ul {
@@ -52,8 +56,8 @@ ul {
             font-family: $fontSans;
             @extend %fontSizeBase;
             height: 1.9em;
-            max-width: 600px;
-            width: 40vw;
+            max-width: 750px;
+            width: 50vw;
             &::placeholder {
                 color: $colorPrimary;
                 opacity: 0;
@@ -88,16 +92,26 @@ ul {
         font-family: $fontSerif;
         @extend %fontSizeBase;
         height: 1.4em;
-        max-width: 600px;
-        width: 40vw;
+        max-width: 750px;
+        width: 50vw;
         box-sizing: content-box;
         color: $colorAccent;
-        background: none;
+        background: $colorDefault;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @include font-size (320px, 1920px, 20px, 52px);
-        svg {
-            width: 1em;
-        }
         cursor: pointer;
+        &:hover {
+            svg {
+                transform: translateX(20%);
+            }
+        }
+        svg {
+            width: 0.8em;
+            padding-left: 0.2em;
+            transition: 0.15s ease-in-out;
+        }
         &:disabled {
             opacity: 0.5;
             &:hover {
@@ -113,17 +127,23 @@ ul {
 }
 
 @include for-phone-only {
-    .header {
-        letter-spacing: 0.1em;
+    .sectionContact {
+        .header {
+            letter-spacing: 0.1em;
+        }
+        ul li {
+            flex-direction: column-reverse;
+            width: 100%;
+            input,
+            textarea,
+            button {
+                width: calc(100% - 1em);
+            }
+        }
     }
-    ul li {
-        flex-direction: column-reverse;
-        input,
-        textarea {
-            width: 100%;
-        }
-        button {
-            width: 100%;
-        }
+}
+@media (max-width: 900px) {
+    .sectionContact {
+        overflow: visible;
     }
 }

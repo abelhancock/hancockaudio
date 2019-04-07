@@ -82,7 +82,7 @@ class AudioPlayer extends Component {
             />
           </div>
           <div className={styles.controls} onClick={this.playPause} data-playstate={playing ? 'playing' : 'paused'}>
-            <div className={styles.playPause}></div>
+            <button className={styles.playPause}></button>
             <p className={styles.trackTitle}>{this.props.title}</p>
             <Duration seconds={duration}/>
           </div>
@@ -97,6 +97,7 @@ class AudioPlayer extends Component {
               onMouseDown={this.onSeekMouseDown}
               onChange={this.onSeekChange}
               onMouseUp={this.onSeekMouseUp}
+              tabIndex="-1"
             />
             </label>
             <div className={styles.trackLength} />
