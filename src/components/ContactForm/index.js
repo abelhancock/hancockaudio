@@ -35,7 +35,7 @@ class ContactForm extends Component {
               name="Contact"
               action="/thank-you"
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              data-netlify-honeypot="bot-field"
               >
               <ProximityFeedback throttleInMs={1} threshold={100}>
                 {({ ref, proximity }) => (
