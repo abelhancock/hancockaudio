@@ -46,8 +46,6 @@ class ContactForm extends Component {
                               type="text"
                               name="bot-field"
                               id="name1"
-                              data-type="input-textbox"
-                              data-component="textbox"
                               />
                           <label htmlFor="name1">Name</label>
                       </li>
@@ -57,8 +55,6 @@ class ContactForm extends Component {
                               type="text"
                               name="Name"
                               id="name"
-                              data-type="input-textbox"
-                              data-component="textbox"
                               required
                               />
                           <label htmlFor="name">Name</label>
@@ -69,8 +65,6 @@ class ContactForm extends Component {
                               type="email"
                               name="Email"
                               id="email"
-                              data-type="input-textbox"
-                              data-component="textbox"
                               required
                               />
                               <label htmlFor="email">Email</label>
@@ -79,7 +73,6 @@ class ContactForm extends Component {
                           <textarea
                               name="Message"
                               id="message"
-                              data-component="input-textbox"
                               >
                           </textarea>
                           <label htmlFor="message">Message</label>
@@ -88,7 +81,6 @@ class ContactForm extends Component {
                           <button
                               ref={ref}
                               type="submit"
-                              data-component="button"
                               id="submit"
                               > 
                               Submit <svg viewBox="0 0 31 13" xmlns="http://www.w3.org/2000/svg">
