@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './index.module.scss'
 import ProgressiveImage from 'react-progressive-image'
 import Plx from 'react-plx'
@@ -7,6 +7,8 @@ import SEO from 'components/SEO'
 import RecentWork from 'components/RecentWork'
 import Layout from 'components/Layout'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import ReactCursorPosition from 'react-cursor-position'
+import EnterSite from '../components/EnterSite';
 
 const plxAccent = [
   {
@@ -123,7 +125,7 @@ const plxContainerBackground = [
     duration: '60vh',
     properties: [
       {
-        startValue: 0.7,
+        startValue: 1,
         endValue: 0,
         property: 'opacity',
       }
@@ -188,7 +190,25 @@ const plxBackground = [
   } 
 ]
 
-const IndexPage = () => (
+
+
+// const IndexPage = () => (
+class IndexPage extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {enter: false}
+    }
+    toggle() {
+      this.setState({enter: !this.state.enter});
+    }
+    render() {
+      if(this.state.enter) {
+        document.body.style.position = "unset";
+      }
+      else {
+        document.body.style.position = "fixed";
+      }
+      return(
   <Layout>
     <SEO 
       title={"Abel Hancock | Composer – Musician"}
@@ -204,10 +224,37 @@ const IndexPage = () => (
       />
     <Plx className={styles.background}
          parallaxData={ plxBackground }/>
+    <div
+      className={styles.enterWrapper}
+      data-siteentered={this.state.enter ? "true" : "false"}
+      >
+      <ReactCursorPosition
+        style={{
+          width: '100vw',
+          height: '100vh',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: 100,
+        }}>
+        <EnterSite>
+          <div
+            className={styles.enter}
+            onClick={this.toggle.bind(this)}
+            onMouseDown={this.toggle.bind(this)}
+            id={this.state.enter ? "enterHidden" : "enter"}
+            >
+            click
+            </div>
+        </EnterSite>
+      </ReactCursorPosition>
+    </div>
+    <div className={styles.accentWelcome}/>
     <Plx className={styles.accent}
          parallaxData={ plxAccent} />
     <Plx className={styles.scrollIndicator}
-         parallaxData={plxScrollIndicator}>
+         parallaxData={plxScrollIndicator}
+         data-siteentered={this.state.enter ? "true" : "false"}>
       <AnchorLink offset="200" href='#aboutMeEnd'>scroll</AnchorLink>
       <Plx parallaxData={plxScrollLine} />
     </Plx>
@@ -215,16 +262,18 @@ const IndexPage = () => (
       <div className={styles.aboutMe}>
         <h1>
           <Plx className={styles.containerBackground}
-               parallaxData={plxContainerBackground}/>
-          <span>Abel</span>
-          <span>
+               parallaxData={plxContainerBackground}
+               data-siteentered={this.state.enter ? "true" : "false"}
+               />
+          <div className={styles.abel}>Abel</div>
+          <div className={styles.hancock}>
             Hancock
             <h4>
               <span>Composer</span>
               <div></div>
               <span>Musician</span>
             </h4>
-          </span>
+          </div>
         </h1>
       </div>
       <div className={styles.anchorLink} id="aboutMeEnd">{null}</div>
@@ -252,6 +301,11 @@ const IndexPage = () => (
     <RecentWork />
     <ContactForm />
   </Layout>
-)
+  );
+}
+}
 
 export default IndexPage
+// )
+
+// export default IndexPage

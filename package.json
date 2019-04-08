@@ -24,6 +24,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-cursor-position": "^3.0.3",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-player": "^1.9.3",

@@ -36,6 +36,82 @@ body {
         top: 50vh;
     }
 }
+.accentWelcome {
+    background-color: $colorAccent;
+    position: fixed;
+    z-index: 2;
+    @extend %fontSizeH1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    animation: accentWelcomeHeight 0.3s ease-in-out 0.2s forwards,
+               accentWelcomeWidth 0.3s ease-in-out 0.5s forwards;
+
+    @keyframes accentWelcomeHeight {
+        0% {
+            height: 100vh;
+            top: 0;
+        }
+        100% {
+            height: 0.15ch;
+            top: calc(50vh - 2em);
+        }
+    }
+    @keyframes accentWelcomeWidth {
+        0% {
+            width: 100vw;
+            left: 0;
+        }
+        99% {
+            left: calc(5vw + 48px);
+            width: 0.4ch;
+            opacity: 1;
+        }
+        100% {
+            left: calc(5vw + 48px);
+            width: 0.4ch;
+            opacity: 0;
+        }
+    }
+}
+.enterWrapper[data-siteentered="true"] {
+    display: none;
+}
+.enter {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid $colorAccent;
+    color: $colorAccent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.3em;
+    font-family: "Serif";
+    text-align: center;
+}
+:global(#enter) {
+    animation: animateOut 0.4s ease-in-out 2s reverse backwards;
+}
+@keyframes animateOut {
+    0% {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    99% {
+        opacity: 0;
+        pointer-events: auto;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+:global(#enterHidden) {
+    animation: animateOut 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+}
 .scrollIndicator {
     position: fixed;
     bottom: 0;
@@ -48,7 +124,7 @@ body {
     div {
         width: 2px;
         background: $colorAccent;
-        height: 32px;
+        height: 0;
         transform-origin: top;
     }
     a {
@@ -58,6 +134,19 @@ body {
         padding: 0.5em;
         cursor: pointer;
         letter-spacing: 0.3em;
+        opacity: 0;
+    }
+    &[data-siteentered="true"] {
+        a {
+            animation: fadeIn 0.3s ease-in-out 1s forwards;
+        }
+        div {
+            animation: growIn 0.4s ease-in-out 1.3s forwards;
+            @keyframes growIn {
+                0% {height: 0;}
+                100% {height: 32px}
+            }
+        }
     }
 }
 .sectionHello {
@@ -77,30 +166,87 @@ body {
             .containerBackground {
                 position: absolute;
                 background: $colorDefault;
-                width: 100%;
-                height: 100%;
                 padding: 0.8em;
                 z-index: -1;
-                top: -1em;
                 left: calc(-5vw - 48px);
                 box-shadow: 0px 28px 94px rgba(0, 0, 0, 0.2);
-                opacity: 0.7;
+                opacity: 1;
+                width: 100vw;
+                height: 100vh;
+                top: calc(-50vh + 50%);
+                &[data-siteentered="true"] {
+                    animation: backgroundWelcomeHeight 0.15s ease-in-out 0s forwards,
+                              backgroundWelcomeWidth 0.3s ease-in-out 0.1s forwards;
+                }
+                @keyframes backgroundWelcomeHeight {
+                    0% {
+                        height: 100vh;
+                        top: calc(-50vh + 50%);
+                    }
+                    100% {
+                        height: 100%;
+                        top: -1em;
+                    }
+                }
+                @keyframes backgroundWelcomeWidth {
+                    0% {
+                        width: 100vw;
+                    }
+                    100% {
+                        width: 100%;
+                    }
+                }
             }
-            span {
+            .abel, .hancock {
+                opacity: 0;
                 display: block;
-                &:nth-of-type(2) {
-                    h4 {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        margin-top: 1em;
-                        div {
-                            background: $colorPrimary;
-                            height: 2px;
-                            width: 100%;
-                            min-width: 1em;
-                            margin: 0 0.5em;
-                            opacity: 0.6;
+                @keyframes fadeInDown {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(-10%);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+            .abel {
+                animation: fadeInDown 0.6s ease-in-out 0.8s forwards;
+            }
+            .hancock {
+                animation: fadeInDown 0.6s ease-in-out 1s forwards;
+                h4 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 1em;
+                    @keyframes fadeIn {
+                        0% {opacity: 0}
+                        100% {opacity: 1}
+                    }
+                    span {
+                        opacity: 0;
+                        &:nth-of-type(1) {
+                            animation: fadeIn 0.4s ease-in-out 1.5s forwards
+                        }
+                        &:nth-of-type(2) {
+                            animation: fadeIn 0.4s ease-in-out 1.9s forwards
+                        }
+                    }
+                    div {
+                        background: $colorPrimary;
+                        height: 2px;
+                        width: 100%;
+                        min-width: 1em;
+                        margin: 0 0.5em;
+                        opacity: 0.6;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        animation: scaleX 0.3s ease-in-out 1.7s forwards;
+                        @keyframes scaleX {
+                            0% {transform: scaleX(0)}
+                            100% {transform: scaleX(1)}
                         }
                     }
                 }
@@ -154,7 +300,3 @@ body {
         padding-bottom: 18vh;
     }
 }
-
-.sectionMusic {
-    //display: none;
-  }

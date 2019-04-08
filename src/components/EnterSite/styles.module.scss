@@ -1,0 +1,11 @@
+@import "styles/global.scss";
+
+.enter {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 100;
+    background: $colorAccent;
+    right: 0;
+    top: 50%;
+}
