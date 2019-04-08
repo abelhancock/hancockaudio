@@ -202,11 +202,13 @@ class IndexPage extends Component {
       this.setState({enter: !this.state.enter});
     }
     render() {
-      if(this.state.enter) {
-        document.body.style.position = "unset";
-      }
-      else {
-        document.body.style.position = "fixed";
+      if (typeof window !== 'undefined') {
+        if(this.state.enter) {
+          document.body.style.position = "unset";
+        }
+        else {
+          document.body.style.position = "fixed";
+        }
       }
       return(
   <Layout>
