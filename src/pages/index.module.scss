@@ -174,10 +174,12 @@ body {
                 width: 100vw;
                 height: 100vh;
                 top: calc(-50vh + 50%);
-                &[data-siteentered="true"] {
-                    animation: backgroundWelcomeHeight 0.3s ease-in-out 0s forwards,
-                              backgroundWelcomeWidth 0.4s ease-in-out 0.1s forwards;
-                }
+                // &[data-siteentered="true"] {
+                //     animation: backgroundWelcomeHeight 0.3s ease-in-out 0s forwards,
+                //               backgroundWelcomeWidth 0.4s ease-in-out 0.1s forwards;
+                // }
+                animation: backgroundWelcomeHeight 0.3s ease-in-out 2.3s forwards,
+                               backgroundWelcomeWidth 0.4s ease-in-out 2.4s forwards;
                 @keyframes backgroundWelcomeHeight {
                     0% {
                         height: 100vh;
@@ -192,8 +194,12 @@ body {
                     0% {
                         width: 100vw;
                     }
+                    50% {
+                        background: $colorDefault;
+                    }
                     100% {
                         width: 100%;
+                        background: rgba(236, 226, 212, 0.6);
                     }
                 }
             }

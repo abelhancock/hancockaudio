@@ -144,6 +144,18 @@ const plxMe = [
         property: 'opacity',
       }
     ]
+  },
+  {
+    start: '#endBioContent',
+    startOffset: '45vh',
+    duration: '15vh',
+    properties: [
+      {
+        startValue: 0,
+        endValue: 1,
+        property: 'grayscale',
+      }
+    ]
   }
 ];
 
@@ -191,123 +203,122 @@ const plxBackground = [
 ]
 
 
-
-// const IndexPage = () => (
 class IndexPage extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {enter: false}
-    }
-    toggle() {
-      this.setState({enter: !this.state.enter});
-    }
-    render() {
-      if (typeof window !== 'undefined') {
-        if(this.state.enter) {
-          document.body.style.position = "unset";
-        }
-        else {
-          document.body.style.position = "fixed";
-        }
+  constructor(props) {
+    super(props);
+    this.state = {enter: false}
+  }
+  componentDidMount() {
+    setTimeout(function() {
+        this.setState({enter: !this.state.enter})
+    }.bind(this), 2800)
+  }
+  toggle() {
+    this.setState({enter: !this.state.enter});
+  }
+  render() {
+    if (typeof window !== 'undefined') {
+      if(this.state.enter) {
+        document.body.style.position = "unset";
       }
-      return(
-  <Layout>
-    <SEO 
-      title={"Abel Hancock | Composer – Musician"}
-      keywords={[
-        "abel hancock",
-        "musician",
-        "composer",
-        "film music",
-        "cinematic"
-      ]}
-      description={"Abel Hancock is a musician and composer living in Los Angeles, CA"}
-      robots={"index,follow"}
-      />
-    <Plx className={styles.background}
-         parallaxData={ plxBackground }/>
-    <div
-      className={styles.enterWrapper}
-      data-siteentered={this.state.enter ? "true" : "false"}
-      >
-      <ReactCursorPosition
-        style={{
-          width: '100vw',
-          height: '100vh',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          zIndex: 100,
-        }}>
-        <EnterSite>
-          <div
-            className={styles.enter}
-            onClick={this.toggle.bind(this)}
-            onMouseDown={this.toggle.bind(this)}
-            id={this.state.enter ? "enterHidden" : "enter"}
-            >
-            click
-            </div>
-        </EnterSite>
-      </ReactCursorPosition>
-    </div>
-    <div className={styles.accentWelcome}/>
-    <Plx className={styles.accent}
-         parallaxData={ plxAccent} />
-    <Plx className={styles.scrollIndicator}
-         parallaxData={plxScrollIndicator}
-         data-siteentered={this.state.enter ? "true" : "false"}>
-      <AnchorLink offset="200" href='#aboutMeEnd'>scroll</AnchorLink>
-      <Plx parallaxData={plxScrollLine} />
-    </Plx>
-    <section className={styles.sectionHello}>
-      <div className={styles.aboutMe}>
-        <h1>
-          <Plx className={styles.containerBackground}
-               parallaxData={plxContainerBackground}
-               data-siteentered={this.state.enter ? "true" : "false"}
-               />
-          <div className={styles.abel}>Abel</div>
-          <div className={styles.hancock}>
-            Hancock
-            <h4>
-              <span>Composer</span>
-              <div></div>
-              <span>Musician</span>
-            </h4>
+      else {
+        document.body.style.position = "fixed";
+      }
+    }
+    return(
+      <Layout>
+        <SEO 
+          title={"Abel Hancock | Composer – Musician"}
+          keywords={[
+            "abel hancock",
+            "musician",
+            "composer",
+            "film music",
+            "cinematic"
+          ]}
+          description={"Abel Hancock is a musician and composer living in Los Angeles, CA"}
+          robots={"index,follow"}
+          />
+        <Plx className={styles.background}
+            parallaxData={ plxBackground }/>
+        <div
+          className={styles.enterWrapper}
+          data-siteentered={this.state.enter ? "true" : "false"}
+          >
+          {/* <ReactCursorPosition
+            style={{
+              width: '100vw',
+              height: '100vh',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              zIndex: 100,
+            }}>
+            <EnterSite>
+              <div
+                className={styles.enter}
+                onClick={this.toggle.bind(this)}
+                onMouseDown={this.toggle.bind(this)}
+                id={this.state.enter ? "enterHidden" : "enter"}
+                >
+                enter
+                </div>
+            </EnterSite>
+          </ReactCursorPosition> */}
+        </div>
+        <div className={styles.accentWelcome}/>
+        <Plx className={styles.accent}
+            parallaxData={ plxAccent} />
+        <Plx className={styles.scrollIndicator}
+            parallaxData={plxScrollIndicator}
+            data-siteentered={this.state.enter ? "true" : "false"}>
+          <AnchorLink offset="200" href='#aboutMeEnd'>scroll</AnchorLink>
+          <Plx parallaxData={plxScrollLine} />
+        </Plx>
+        <section className={styles.sectionHello}>
+          <div className={styles.aboutMe}>
+            <h1>
+              <Plx className={styles.containerBackground}
+                  parallaxData={plxContainerBackground}
+                  data-siteentered={this.state.enter ? "true" : "false"}
+                  />
+              <div className={styles.abel}>Abel</div>
+              <div className={styles.hancock}>
+                Hancock
+                <h4>
+                  <span>Composer</span>
+                  <div></div>
+                  <span>Musician</span>
+                </h4>
+              </div>
+            </h1>
           </div>
-        </h1>
-      </div>
-      <div className={styles.anchorLink} id="aboutMeEnd">{null}</div>
-      <Plx className={styles.me} parallaxData={plxMe}>
-        <ProgressiveImage src="images/me-color-bg-wide.jpg" placeholder="images/me-color-bg-wide-tiny.jpg">
-          {src => <img src={src} alt="me" />}
-        </ProgressiveImage>
-      </Plx>
-    </section>
-
-    <section className={styles.sectionBio}>
-      <div className={styles.bio}>
-        <div id="bioContent">
-          <h3>About Me</h3>
-          <p>
-            <span>I have been creating music for over 17 years as a hobby, a profession, and part of how I express myself.</span>
-            <br></br>
-            <br></br>
-            <span>I love using my musical, technical, and creative talent to help you express emotions and ideas in any project.</span>
-          </p>
-        </div>
-        <div id="endBioContent"></div>
-        </div>
-    </section>
-    <RecentWork />
-    <ContactForm />
-  </Layout>
-  );
-}
+          <div className={styles.anchorLink} id="aboutMeEnd">{null}</div>
+          <Plx className={styles.me} parallaxData={plxMe}>
+            <ProgressiveImage src="images/me-color-bg-wide.jpg" placeholder="images/me-color-bg-wide-tiny.jpg">
+              {src => <img src={src} alt="me" />}
+            </ProgressiveImage>
+          </Plx>
+        </section>
+        <section className={styles.sectionBio}>
+          <div className={styles.bio}>
+            <div id="bioContent">
+              <h3>About Me</h3>
+              <p>
+                <span>I have been creating music for over 17 years as a hobby, a profession, and part of how I express myself.</span>
+                <br></br>
+                <br></br>
+                <span>I love using my musical, technical, and creative talent to help you express emotions and ideas in any project.</span>
+              </p>
+            </div>
+            <div id="endBioContent"></div>
+            </div>
+        </section>
+        <RecentWork />
+        <ContactForm />
+      </Layout>
+    );
+  }
 }
 
 export default IndexPage
-// )
-
-// export default IndexPage
