@@ -75,23 +75,19 @@ body {
         }
     }
 }
-.enterWrapper[data-siteentered="true"] {
-    display: none;
-}
-.enter {
-    width: 100%;
-    height: 100%;
+.cursor {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    border: 2px solid $colorAccent;
-    color: $colorAccent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.3em;
-    font-family: "Serif";
-    text-align: center;
+    background: $colorDefault;
 }
-:global(#enter) {
+.cursorOutline {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $colorDefault;
+}
+:global(#cursorOutline) {
     animation: animateOut 0.4s ease-in-out 2s reverse backwards;
 }
 @keyframes animateOut {
@@ -107,10 +103,6 @@ body {
         opacity: 0;
         pointer-events: none;
     }
-}
-:global(#enterHidden) {
-    animation: animateOut 0.2s ease-in-out;
-    animation-fill-mode: forwards;
 }
 .scrollIndicator {
     position: fixed;
@@ -132,7 +124,7 @@ body {
         font-family: "Serif";
         color: $colorAccent;
         padding: 0.5em;
-        cursor: pointer;
+        // cursor: pointer;
         letter-spacing: 0.3em;
         opacity: 0;
     }

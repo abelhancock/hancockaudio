@@ -8,7 +8,9 @@ html {
     box-sizing: border-box;
     background-color: $colorDefault;
 }
-
+body, a, button {
+    cursor: none;
+}
 ::selection {
     color: white;
     background: $colorAccent;
@@ -58,13 +60,10 @@ h4 {
 p {
     @extend %fontSizeBase;
     font-weight: 400;
+    line-height: 150%;
 }
 
 *:focus {
-    // outline: none;
-    // border: 1px solid !important;
-    // border-image-source: url('/images/focusBorder.svg') !important;
-    // border-image-slice: 1 !important;
     outline-color: currentColor;
 }
 
@@ -73,5 +72,31 @@ p {
     height: 1px;
     opacity: 0;
     left: 0;
+}
+u {
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    &:before {
+        content: '';
+        width: 100%;
+        height: 0.35em;
+        bottom: -0.05em;
+        background: $colorDefault;
+        position: absolute;
+        transform: skewX(-50deg) scaleX(0);
+        border-radius: 1px;
+        box-shadow: 3px 3px 3px rgba(45, 42, 38, 0.1);
+        animation: none;
+        transform-origin: left;
+        z-index: -1;
+    }
+    &:global(.Plx--below):before {
+        animation: underline 0.7s cubic-bezier(0.22, 0, 0, 1) 0.2s forwards;
+    }
+    @keyframes underline {
+        0% {transform: skewX(-50deg) scaleX(0)}
+        to {transform: skewX(-50deg) scaleX(1)}
+    }
 }
 //MOBILE

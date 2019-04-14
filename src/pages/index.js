@@ -8,8 +8,22 @@ import RecentWork from 'components/RecentWork'
 import Layout from 'components/Layout'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import ReactCursorPosition from 'react-cursor-position'
-import EnterSite from '../components/EnterSite';
+import CursorOutline from '../components/CursorOutline'
+import Cursor from '../components/Cursor'
 
+const plxInView = [
+  {
+    start: 'self',
+    duration: 1,
+    properties: [
+      {
+      startValue: 1,
+      endValue: 1,
+      propery: 'saturate'
+      }
+    ]
+  }
+]
 const plxAccent = [
   {
     start: 0,
@@ -213,9 +227,6 @@ class IndexPage extends Component {
         this.setState({enter: !this.state.enter})
     }.bind(this), 2800)
   }
-  toggle() {
-    this.setState({enter: !this.state.enter});
-  }
   render() {
     if (typeof window !== 'undefined') {
       if(this.state.enter) {
@@ -227,6 +238,19 @@ class IndexPage extends Component {
     }
     return(
       <Layout>
+        <ReactCursorPosition>
+        <Cursor>
+          <div
+            className={styles.cursor}
+            id="cursor">
+          </div>
+        </Cursor>
+        <CursorOutline>
+          <div
+            className={styles.cursorOutline}
+            id="cursorOutline">
+          </div>
+        </CursorOutline>
         <SEO 
           title={"Abel Hancock | Composer – Musician"}
           keywords={[
@@ -241,38 +265,13 @@ class IndexPage extends Component {
           />
         <Plx className={styles.background}
             parallaxData={ plxBackground }/>
-        <div
-          className={styles.enterWrapper}
-          data-siteentered={this.state.enter ? "true" : "false"}
-          >
-          {/* <ReactCursorPosition
-            style={{
-              width: '100vw',
-              height: '100vh',
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              zIndex: 100,
-            }}>
-            <EnterSite>
-              <div
-                className={styles.enter}
-                onClick={this.toggle.bind(this)}
-                onMouseDown={this.toggle.bind(this)}
-                id={this.state.enter ? "enterHidden" : "enter"}
-                >
-                enter
-                </div>
-            </EnterSite>
-          </ReactCursorPosition> */}
-        </div>
         <div className={styles.accentWelcome}/>
         <Plx className={styles.accent}
             parallaxData={ plxAccent} />
         <Plx className={styles.scrollIndicator}
             parallaxData={plxScrollIndicator}
             data-siteentered={this.state.enter ? "true" : "false"}>
-          <AnchorLink offset="200" href='#aboutMeEnd'>scroll</AnchorLink>
+          <AnchorLink offset="200" href='#aboutMeEnd' data-hover>scroll</AnchorLink>
           <Plx parallaxData={plxScrollLine} />
         </Plx>
         <section className={styles.sectionHello}>
@@ -303,12 +302,10 @@ class IndexPage extends Component {
         <section className={styles.sectionBio}>
           <div className={styles.bio}>
             <div id="bioContent">
-              <h3>About Me</h3>
+              <h3>It's nice to meet you.</h3>
               <p>
-                <span>I have been creating music for over 17 years as a hobby, a profession, and part of how I express myself.</span>
-                <br></br>
-                <br></br>
-                <span>I love using my musical, technical, and creative talent to help you express emotions and ideas in any project.</span>
+                <span>I'm Abel – I have been creating <Plx parallaxData={ plxInView } tagName={'u'}><i>music</i></Plx> for over 17 years as a hobby and profession. </span>
+                <span>I love using sound to express <Plx parallaxData={ plxInView } tagName={'u'}><i>emotions</i></Plx> and <Plx parallaxData={ plxInView } tagName={'u'}><i>ideas</i></Plx> that words can't express. As with any artform, I feel that music can communicate and <Plx parallaxData={ plxInView } tagName={'u'}><i>connect</i></Plx><Plx parallaxData={ plxInView } tagName={'u'}><i> with </i></Plx><Plx parallaxData={ plxInView } tagName={'u'}><i>people</i></Plx> in a unique way. </span>
               </p>
             </div>
             <div id="endBioContent"></div>
@@ -316,6 +313,8 @@ class IndexPage extends Component {
         </section>
         <RecentWork />
         <ContactForm />
+        </ReactCursorPosition>
+
       </Layout>
     );
   }
